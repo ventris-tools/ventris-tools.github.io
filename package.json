@@ -7,7 +7,9 @@
     "collect": "bash scripts/collect-site.sh",
     "lint": "html-validate index.html 404.html",
     "test": "playwright test",
-    "check": "npm run collect && npm run lint && npm test"
+    "check": "npm run collect && npm run lint && npm run check:images && npm test",
+    "check:images": "python3 scripts/make-images.py --check",
+    "check:links": "node scripts/check-links.js"
   },
   "engines": {
     "node": ">=22.13"

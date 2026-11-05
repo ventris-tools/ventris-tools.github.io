@@ -6,13 +6,17 @@ Run it after you change the headline, the og:description or the palette:
     python3 scripts/make-images.py
 
 It needs Python and Google Chrome, and no packages. Set CHROME if Chrome is somewhere else.
+
+With --check it renders nothing and needs no Chrome. It fails if the images are out of date.
 """
 
 import base64
+import hashlib
 import html
 import os
 import re
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -99,5 +103,15 @@ def render(markup, width, height, output):
     print(f"Wrote {output}")
 
 
+# These two pages hold everything the images are made from, so this changes when an image would.
+fingerprint = hashlib.sha256((OG_PAGE + ICON_PAGE).encode()).hexdigest()
+stamp = ROOT / "scripts" / "images.sha256"
+
+if "--check" in sys.argv:
+    if stamp.read_text(encoding="utf-8").strip() != fingerprint:
+        raise SystemExit("og.png or apple-touch-icon.png is out of date. Run: python3 scripts/make-images.py")
+    sys.exit()
+
 render(OG_PAGE, 1200, 630, ROOT / "og.png")
 render(ICON_PAGE, 180, 180, ROOT / "apple-touch-icon.png")
+stamp.write_text(fingerprint + "\n", encoding="utf-8")

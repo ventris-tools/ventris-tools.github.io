@@ -23,7 +23,9 @@ npm ci
 npm run check
 ```
 
-This validates the HTML, then opens the pages in Chrome. It looks for console errors, including anything the Content Security Policy blocks, and for broken links and missing files. It also checks that every character is in the font subset, that both themes pass an accessibility scan, that phones get no sideways scrolling, and that the home page stays within its page weight budget and fits one desktop screen.
+This validates the HTML, then opens the pages in Chrome. It looks for console errors, including anything the Content Security Policy blocks, and for broken links and missing files. It also checks that every character is in the font subset, that both themes pass an accessibility scan, that phones get no sideways scrolling, and that the home page stays within its page weight budget and fits one desktop screen. It also fails if the images below are out of date.
+
+`npm run check:links` checks every link on the live site, including the ones that leave it. GitHub Actions runs it every Monday. It is separate from `npm run check`, so another site being down can't block a deploy.
 
 ## Deployment
 
@@ -40,6 +42,8 @@ The app at `/ventris/` is the Pages site of the [ventris](https://github.com/ven
 ```bash
 python3 scripts/make-images.py
 ```
+
+`scripts/images.sha256` records what the images were last rendered from, so commit it with them.
 
 ## Fonts
 
