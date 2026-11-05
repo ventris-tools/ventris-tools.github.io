@@ -14,6 +14,10 @@ python3 -m http.server 4174
 
 Then open <http://localhost:4174>.
 
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before you reuse code from another project.
+
 ## License
 
 BSD 3-Clause. See [LICENSE](LICENSE).
