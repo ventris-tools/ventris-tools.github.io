@@ -17,6 +17,7 @@
   <meta property="og:image:alt" content="Ventris Tools. EEG decoding in your browser.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -31,6 +32,7 @@
       <span>Ventris Tools</span>
     </a>
     <a class="github-link" href="https://github.com/ventris-tools" aria-label="Ventris Tools on GitHub" title="GitHub">
+      <!-- mark-github-16 from Octicons v19 (https://github.com/primer/octicons), MIT license. See licenses/octicons.txt. -->
       <svg viewBox="0 0 16 16" width="24" height="24" aria-hidden="true">
         <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
       </svg>
@@ -47,19 +49,22 @@
       <path d="M0 44.2L3 47.7L6 46.8L9 47.2L12 49.5L15 47.8L18 44.6L21 45.6L24 46.2L27 44.1L30 45.5L33 49.5L36 49.6L39 49.0L42 51.5L45 51.1L48 47.0L51 46.0L54 46.3L57 43.2L60 41.9L63 45.0L66 46.0L69 44.7L72 46.7L75 48.1L78 44.7L81 42.2L84 42.5L87 39.7L90 36.3L93 37.9L96 39.7L99 38.4L102 39.7L105 43.0L108 41.6L111 39.0L114 39.7L117 38.5L120 34.4L123 34.3L126 36.6L129 35.8L132 36.2L135 40.2L138 41.4L141 39.4L144 40.2L147 40.9L150 37.3L153 35.5L156 37.4L159 37.0L162 35.9L165 39.1L168 41.9L171 40.5L174 40.7L177 42.6L180 40.2L183 36.7L186 37.5L189 37.3L192 34.6L195 35.8L198 39.0L201 38.4L204 37.7L207 40.1L210 39.4L213 35.3L216 34.6L219 34.8L222 31.5L225 30.4L228 33.4L231 34.1L234 33.1L237 35.8L240 37.5L243 34.5L246 32.9L249 33.6L252 31.0L255 28.1L258 30.4L261 32.5L264 32.1L267 34.9L270 39.2L273 38.7L276 37.1L279 38.2L282 36.7L285 32.6L288 32.8L291 35.3L294 35.3L297 37.5L300 43.5L303 46.1L306 45.3L309 46.6L312 46.3L315 41.1L318 37.9L321 38.8L324 38.0L327 38.2L330 44.0L333 49.4L336 50.3L339 52.1L342 53.4L345 48.6L348 42.2L351 39.8L354 37.1L357 34.2L360 37.5L363 44.3L366 47.8L369 51.1L372 55.3L375 53.4L378 46.2L381 41.1L384 36.5L387 30.2L390 29.2L393 35.1L396 40.6L399 45.6L402 53.2L405 56.9L408 52.7L411 47.3L414 42.1L417 33.6L420 27.4L423 29.4L426 34.4L429 39.5L432 48.9L435 58.0L438 59.2L441 56.2L444 52.5L447 44.1L450 33.5L453 29.7L456 31.2L459 33.6L462 41.0L465 52.6L468 59.2L471 59.9L474 59.3L477 53.7L480 41.7L483 32.5L486 28.9L489 26.7L492 29.0L495 39.2L498 49.0L501 53.7L504 57.1L507 56.6L510 47.2L513 35.4L516 27.7L519 21.0L522 17.1L525 22.5L528 33.1L531 41.1L534 48.5L537 54.7L540 51.8L543 41.5L546 32.0L549 22.4L552 12.7L555 11.3L558 19.1L561 28.5L564 38.9L567 51.3L570 57.3L573 52.8L576 44.7L579 34.6L582 20.8L585 11.1L588 12.3L591 19.1L594 28.9L597 44.5L600 58.7L603 62.7L606 59.6L609 52.4L612 37.9L615 21.4L618 13.5L621 13.5L624 18.0L627 31.0L630 49.1L633 61.1L636 65.1L639 64.3L642 54.7L645 36.8L648 22.0L651 14.3L654 10.9L657 16.0L660 31.5L663 47.3L666 57.3L669 64.0L672 63.4L675 51.2L678 35.7L681 24.2L684 15.0L687 11.1L690 19.0L693 32.9L696 44.6L699 55.5L702 63.5L705 60.7L708 50.3L711 40.5L714 30.5L717 21.1L720 20.4L723 28.6L726 37.5L729 47.2L732 58.7L735 63.8L738 60.0L741 54.5L744 47.8L747 37.6L750 31.1L753 32.9L756 37.0L759 41.9L762 51.3L765 59.6L768 60.4L771 58.4L774 56.1L777 48.7L780 39.9L783 37.3L786 37.5L789 37.4L792 42.0L795 49.7L798 52.7L801 52.5L804 53.3L807 50.2L810 42.3L813 37.7L816 36.4L819 33.5L822 33.5L825 39.2L828 43.2L831 43.9L834 46.4L837 47.5L840 42.6L843 37.9L846 36.6L849 33.5L852 30.5L855 33.5L858 37.9L861 39.0L864 41.8L867 45.9L870 44.6L873 40.7L876 39.8L879 37.7L882 33.2L885 33.1L888 36.7L891 37.7L894 39.3L897 44.3L900 46.0L903 43.2L906 42.3L909 41.6L912 36.6L915 33.5L918 35.3L921 35.7L924 35.2L927 39.1L930 42.6L933 41.2L936 40.2L939 40.7L942 37.0L945 32.1L948 31.9L951 32.0L954 29.9L957 31.6L960 36.0L963 36.3L966 35.5L969 37.4L972 36.4L975 31.6L978 30.2L981 30.8L984 28.4L987 28.1L990 32.4L993 34.5L996 34.2L999 36.9L1002 38.9L1005 35.9L1008 34.1L1011 35.3L1014 33.8L1017 31.8L1020 34.8L1023 38.0L1026 37.9L1029 40.1L1032 44.0L1035 43.2L1038 41.1L1041 42.4L1044 41.9L1047 38.7L1050 39.5L1053 42.5L1056 42.2L1059 42.7L1062 46.6L1065 47.6L1068 45.2L1071 45.8L1074 46.3L1077 42.8L1080 41.1L1083 43.2L1086 42.8L1089 41.4L1092 44.2L1095 46.5L1098 44.6L1101 44.2L1104 45.8L1107 43.4L1110 40.1L1113 41.1L1116 41.4L1119 39.1L1122 40.4L1125 43.8L1128 43.1L1131 42.4L1134 44.9L1137 44.5L1140 41.1L1143 41.1L1146 42.3L1149 40.0L1152 39.7L1155 43.4L1158 44.4L1161 43.6L1164 46.3L1167 48.1L1170 45.3L1173 44.2L1176 45.6L1179 43.7L1182 41.5L1185 44.0L1188 46.0L1191 44.9L1194 46.6L1197 49.8L1200 48.2"/>
     </svg>
 
-    <section class="block" aria-labelledby="projects-title">
-      <h2 id="projects-title">Projects</h2>
-      <article class="project">
-        <h3><a href="ventris/">Ventris</a></h3>
-        <p>Our first tool. Open a recording and explore its signals.</p>
-      </article>
+    <section class="block" aria-labelledby="tools-title">
+      <h2 id="tools-title">Tools</h2>
+      <div class="tools">
+        <article class="tool">
+          <h3><a href="ventris/">Ventris</a></h3>
+          <span class="tool-open" aria-hidden="true">Open →</span>
+          <p>Our first tool. Open an EDF recording or try the demo.</p>
+        </article>
+      </div>
     </section>
 
     <section class="block" aria-labelledby="principles-title">
       <h2 id="principles-title">Principles</h2>
       <ul class="principles">
         <li><strong>In the browser</strong> Private by design. No&nbsp;install and no account.</li>
-        <li><strong>Open source</strong> Anyone can read the code, check it and improve it.</li>
+        <li><strong>Open source</strong> Anyone can <a href="https://github.com/ventris-tools/ventris">read the code</a>, check it and improve it.</li>
         <li><strong>Visual</strong> Clear plots that make brain signals easy to read.</li>
       </ul>
     </section>
