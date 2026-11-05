@@ -14,9 +14,24 @@ python3 -m http.server 4174
 
 Then open <http://localhost:4174>. The Ventris card's link gives a 404 here, because `/ventris/` is a separate site.
 
+## Checks
+
+The site has no dependencies, but its checks do. They need Node 22 and Google Chrome.
+
+```bash
+npm ci
+npm run check
+```
+
+This validates the HTML, then opens the pages in Chrome. It looks for console errors, including anything the Content Security Policy blocks, and for broken links and missing files. It also checks that every character is in the font subset, that both themes pass an accessibility scan, that phones get no sideways scrolling, and that the home page stays within its page weight budget and fits one desktop screen.
+
 ## Deployment
 
-GitHub Pages publishes the root of `main`. The app at `/ventris/` is the Pages site of the [ventris](https://github.com/ventris-tools/ventris) repository, so the card's link depends on that repository's name.
+Every push to `main` runs the checks on GitHub Actions. If they pass, GitHub Pages publishes the `_site` folder they tested. If they fail, the last good version stays live.
+
+`_site` holds only the files listed in `scripts/collect-site.sh`, so add any new file the site needs there. The checks fail if a page refers to a file that isn't listed.
+
+The app at `/ventris/` is the Pages site of the [ventris](https://github.com/ventris-tools/ventris) repository, so the card's link depends on that repository's name.
 
 ## Images
 
