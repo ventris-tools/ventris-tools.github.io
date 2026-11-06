@@ -47,7 +47,7 @@ python3 scripts/make-images.py
 
 ## Fonts
 
-The files in `site/fonts/` are JetBrains Mono v2.304, cut down to the characters English text needs, without hinting or OpenType features. A character outside this set falls back to a system font, so add it and run this on the release's `fonts/webfonts` files. It needs the `fonttools` and `brotli` Python packages.
+The files in `site/fonts/` are JetBrains Mono v2.304, cut down to the characters English text needs, without hinting or OpenType features. A character outside this set falls back to a system font, so add it here and to `outsideFonts` in `test/site.spec.js`, then run this on the release's `fonts/webfonts` files. It needs the `fonttools` and `brotli` Python packages.
 
 ```bash
 pyftsubset JetBrainsMono-Regular.woff2 --unicodes='U+0020-007E,U+00A0,U+00B7,U+2013,U+2014,U+2018,U+2019,U+201C,U+201D,U+2026,U+2192' --layout-features='' --no-hinting --name-IDs='*' --flavor=woff2 --output-file=site/fonts/JetBrainsMono-Regular.woff2

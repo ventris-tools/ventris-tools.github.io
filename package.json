@@ -16,7 +16,6 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.64.1",
-    "fontkit": "^2.0.4",
     "html-validate": "^11.18.0"
   }
 }
