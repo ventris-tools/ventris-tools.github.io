@@ -2,7 +2,6 @@
   font-family: "JetBrains Mono";
   src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
   font-display: swap;
 }
 
@@ -10,12 +9,11 @@
   font-family: "JetBrains Mono";
   src: url("fonts/JetBrainsMono-Medium.woff2") format("woff2");
   font-weight: 500;
-  font-style: normal;
   font-display: swap;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --paper: #f7f3ea;
   --surface: #fffdf8;
   --ink: #211c17;
@@ -28,7 +26,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color-scheme: dark;
     --paper: #171411;
     --surface: #1f1b17;
     --ink: #f2ece1;
@@ -56,12 +53,14 @@ h1, h2, h3 { font-weight: 500; }
 
 a { color: inherit; text-underline-offset: 3px; }
 
+a:hover { color: var(--ink); }
+
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .masthead, main, .colophon {
   max-width: 880px;
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: 16px;
 }
 
 .masthead {
@@ -91,11 +90,9 @@ a { color: inherit; text-underline-offset: 3px; }
   color: var(--ink-2);
 }
 
-.github-link:hover { color: var(--ink); }
-
 .github-link svg { fill: currentColor; }
 
-.intro { padding-block: calc(72 * var(--v)) calc(36 * var(--v)); }
+.intro { padding-block: 40px 28px; }
 
 h1 {
   font-size: clamp(1.85rem, 6vw, 3.25rem);
@@ -146,7 +143,7 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 8px 16px;
-  padding: 20px 24px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
@@ -224,10 +221,11 @@ h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
 
 .colophon p { text-wrap: balance; }
 
-.principles a:hover, .colophon a:hover { color: var(--ink); }
-
-/* Wide enough for columns, well before the desktop rule below. */
+/* Wide enough for columns and more room, well before the desktop rule below. */
 @media (min-width: 700px) {
+  .masthead, main, .colophon { padding-inline: 24px; }
+  .intro { padding-block: calc(72 * var(--v)) calc(36 * var(--v)); }
+  .tool { padding: 20px 24px; }
   .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .colophon { grid-template-columns: 2fr 1fr; }
 }
@@ -244,10 +242,4 @@ h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
     --v: clamp(0.3px, (100vh - var(--fixed)) / var(--units), 1px);
   }
   .lede { max-width: none; text-wrap: balance; }
-}
-
-@media (max-width: 640px) {
-  .masthead, main, .colophon { padding-inline: 16px; }
-  .intro { padding-block: 40px 28px; }
-  .tool { padding: 18px; }
 }
