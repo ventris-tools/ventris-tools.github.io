@@ -16,7 +16,7 @@ Then open <http://localhost:4174>. The Ventris card's link gives a 404 here, bec
 
 ## Checks
 
-The site has no dependencies, but its checks do. They need Node 22 and Google Chrome.
+The site has no dependencies, but its checks do. They need Node 22.22 or 24.8 and up, and Google Chrome.
 
 ```bash
 npm ci
