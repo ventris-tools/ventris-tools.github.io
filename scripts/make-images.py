@@ -26,7 +26,8 @@ CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacO
 
 page = (SITE / "index.html").read_text(encoding="utf-8")
 css = (SITE / "styles.css").read_text(encoding="utf-8")
-logo = (SITE / "favicon.svg").read_text(encoding="utf-8")
+# The images have one theme, so the logo's dark colors stay out of them.
+logo = re.sub(r"<style>.*</style>", "", (SITE / "favicon.svg").read_text(encoding="utf-8"))
 
 
 def find(pattern, text):
