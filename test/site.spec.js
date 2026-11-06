@@ -5,12 +5,12 @@ import { openSync } from "fontkit";
 const pages = ["/", "/404.html"];
 const liveOrigin = "https://ventris-tools.github.io";
 
-// Ventris is a separate site, published from its own repository, so it is not in _site.
+// Ventris is a separate site, published from its own repository, so it is not in site/.
 const otherSite = "/ventris/";
 
 const pageWeightBudget = 50_000;
 
-const fonts = ["Regular", "Medium"].map((weight) => openSync(`_site/fonts/JetBrainsMono-${weight}.woff2`));
+const fonts = ["Regular", "Medium"].map((weight) => openSync(`site/fonts/JetBrainsMono-${weight}.woff2`));
 
 // The fonts change the layout, so nothing is measured until they have loaded.
 async function open(page, path) {

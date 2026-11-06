@@ -20,12 +20,13 @@ import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+SCRIPTS = Path(__file__).resolve().parent
+SITE = SCRIPTS.parent / "site"
 CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
-page = (ROOT / "index.html").read_text(encoding="utf-8")
-css = (ROOT / "styles.css").read_text(encoding="utf-8")
-logo = (ROOT / "favicon.svg").read_text(encoding="utf-8")
+page = (SITE / "index.html").read_text(encoding="utf-8")
+css = (SITE / "styles.css").read_text(encoding="utf-8")
+logo = (SITE / "favicon.svg").read_text(encoding="utf-8")
 
 
 def find(pattern, text):
@@ -41,7 +42,7 @@ def color(name):
 
 
 def font(weight):
-    data = (ROOT / "fonts" / f"JetBrainsMono-{weight}.woff2").read_bytes()
+    data = (SITE / "fonts" / f"JetBrainsMono-{weight}.woff2").read_bytes()
     return "data:font/woff2;base64," + base64.b64encode(data).decode()
 
 
@@ -105,13 +106,13 @@ def render(markup, width, height, output):
 
 # These two pages hold everything the images are made from, so this changes when an image would.
 fingerprint = hashlib.sha256((OG_PAGE + ICON_PAGE).encode()).hexdigest()
-stamp = ROOT / "scripts" / "images.sha256"
+stamp = SCRIPTS / "images.sha256"
 
 if "--check" in sys.argv:
     if stamp.read_text(encoding="utf-8").strip() != fingerprint:
         raise SystemExit("og.png or apple-touch-icon.png is out of date. Run: python3 scripts/make-images.py")
     sys.exit()
 
-render(OG_PAGE, 1200, 630, ROOT / "og.png")
-render(ICON_PAGE, 180, 180, ROOT / "apple-touch-icon.png")
+render(OG_PAGE, 1200, 630, SITE / "og.png")
+render(ICON_PAGE, 180, 180, SITE / "apple-touch-icon.png")
 stamp.write_text(fingerprint + "\n", encoding="utf-8")

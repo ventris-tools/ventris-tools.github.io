@@ -12,4 +12,4 @@ This website is under the BSD 3-Clause license, so any code added to it has to b
 | Non-commercial or no-derivatives terms | Don't adapt it. |
 | Unknown, or no license | Don't adapt it. |
 
-Fonts and other assets are the exception. They keep their own licenses, as long as those allow redistribution, including commercial use. Put the license file next to the asset and mention it in the README, as `fonts/OFL.txt` does for JetBrains Mono. An asset pasted into a page has no folder of its own, so its license goes in `licenses/`, as `licenses/octicons.txt` does for the GitHub mark.
+Fonts and other assets are the exception. They keep their own licenses, as long as those allow redistribution, including commercial use. Put the license file next to the asset and mention it in the README, as `site/fonts/OFL.txt` does for JetBrains Mono. An asset pasted into a page has no folder of its own, so its license goes in `site/licenses/`, as `site/licenses/octicons.txt` does for the GitHub mark.

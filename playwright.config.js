@@ -14,7 +14,7 @@ export default defineConfig({
     channel: "chrome",
   },
   webServer: {
-    command: `python3 -m http.server ${port} --bind 127.0.0.1 --directory _site`,
+    command: `python3 -m http.server ${port} --bind 127.0.0.1 --directory site`,
     url: `http://127.0.0.1:${port}`,
     stderr: "ignore",
   },
