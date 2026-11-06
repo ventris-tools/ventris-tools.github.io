@@ -1,16 +1,16 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { openSync } from "fontkit";
 
 const pages = ["/", "/404.html"];
 const liveOrigin = "https://ventris-tools.github.io";
 
-// Ventris is a separate site, published from its own repository, so it is not in _site.
+// Ventris is a separate site, published from its own repository, so it is not in site/.
 const otherSite = "/ventris/";
 
 const pageWeightBudget = 50_000;
 
-const fonts = ["Regular", "Medium"].map((weight) => openSync(`_site/fonts/JetBrainsMono-${weight}.woff2`));
+// Anything other than the characters in site/fonts. The README has the command that cuts them.
+const outsideFonts = /[^\u0020-\u007E\u00A0\u00B7\u2013\u2014\u2018\u2019\u201C\u201D\u2026\u2192\n\r\t]/g;
 
 // The fonts change the layout, so nothing is measured until they have loaded.
 async function open(page, path) {
@@ -60,12 +60,8 @@ for (const path of pages) {
       await open(page, path);
 
       const text = await page.evaluate(() => document.body.textContent);
-      const characters = [...new Set(text.replace(/[\n\r\t]/g, ""))];
-      const missing = characters.filter(
-        (character) => !fonts.every((font) => font.hasGlyphForCodePoint(character.codePointAt(0))),
-      );
 
-      expect(missing).toEqual([]);
+      expect(text.match(outsideFonts) ?? []).toEqual([]);
     });
 
     for (const width of [320, 375, 768]) {

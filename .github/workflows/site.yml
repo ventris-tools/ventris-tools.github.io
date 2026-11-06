@@ -25,9 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - uses: actions/upload-pages-artifact@v5
+      - if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: _site
+          path: site
 
   # Runs only if every check passed, so a failure leaves the last good site live.
   deploy:
